@@ -1,11 +1,12 @@
 const expres =require("express")
 const app=express()
-const {createTodo}=require("./types");
-const {updateTodo}=require("./types");
+const {createTodo}=require("./type");
+const {updateTodo}=require("./type");
+const {todo}=require("./db")
 
 app.use(express.json())
 
-app.post('/todo',(req,res)=>{
+app.post('/todo',async (req,res)=>{
     const createPayload=req.body
     const parsedPayload=createTodo.safeParse(createPayload)
     if(!parsedPayload.success){
@@ -15,12 +16,22 @@ app.post('/todo',(req,res)=>{
         return;
     }
     //put it in mongodb
-
+    await todo.create({
+        title: createPayload.title,
+        description: createPayload.description,
+        Completed:false
+    })
+    res.json({
+        msg:"Todo created"
+    })
 })
-app.get('/todos',(req,res)=>{
-
+app.get('/todos',async (req,res)=>{
+    const todos=await todo.find({});
+    res.json({
+        todos
+    })
 })
-app.post('/completed',(req,res)=>{
+app.post('/completed',async(req,res)=>{
     const updateTodo=req.body
     const pasedPayload=createTodo.safeParse(updatePayload)
     if(!parsedPayload.success){
@@ -30,7 +41,10 @@ app.post('/completed',(req,res)=>{
         return;
     }
     //put it in mongodb
-    
+    await todo.update({_id:req.body.id},{Completed: true})
+    res.json({
+        msg:"todo is marked as completed"
+    })
 })
 
 
