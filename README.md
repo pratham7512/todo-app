@@ -13,7 +13,7 @@ This is a basic todo app created using MongoDB, Node.js, Express, and React.
 
 - **Frontend:**
   - React: JavaScript library for building user interfaces.
-  - [Additional frontend libraries used]
+  - Tailwind css
 
 - **Backend:**
   - Node.js: JavaScript runtime for server-side development.
