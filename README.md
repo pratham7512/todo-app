@@ -1,7 +1,21 @@
-##Toddo app
+# Todo App
 
-This project contains a simple Todo app
+This is a basic todo app created using MongoDB, Node.js, Express, and React.
 
-It has following features
+## Features
 
-Anyone can create Todo
+- Create tasks: Add new tasks to your todo list.
+- Delete tasks: Remove tasks from the list.
+- Mark tasks as complete: Toggle the completion status of tasks.
+- Get all tasks: View the entire list of tasks.
+
+## Technologies Used
+
+- **Frontend:**
+  - React: JavaScript library for building user interfaces.
+  - [Additional frontend libraries used]
+
+- **Backend:**
+  - Node.js: JavaScript runtime for server-side development.
+  - Express: Web application framework for Node.js.
+  - MongoDB: NoSQL database for storing tasks.
