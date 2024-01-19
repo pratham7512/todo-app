@@ -1,5 +1,5 @@
-const expres =require("express")
-const app=express()
+const express =require("express")
+const app = express()
 const {createTodo}=require("./type");
 const {updateTodo}=require("./type");
 const {todo}=require("./db")
@@ -33,7 +33,7 @@ app.get('/todos',async (req,res)=>{
 })
 app.post('/completed',async(req,res)=>{
     const updateTodo=req.body
-    const pasedPayload=createTodo.safeParse(updatePayload)
+    const parsedPayload=createTodo.safeParse(updatePayload)
     if(!parsedPayload.success){
         res.status(411).json({
             msg:"You send the worng inputs"
@@ -48,4 +48,4 @@ app.post('/completed',async(req,res)=>{
 })
 
 
-app.listen(3000,"Server is listening on port 3000")
+app.listen(3000)
