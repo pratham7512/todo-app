@@ -34,8 +34,8 @@ app.get('/todos',async (req,res)=>{
     })
 })
 app.post('/completed',async(req,res)=>{
-    const updateTodo=req.body
-    const parsedPayload=createTodo.safeParse(updatePayload)
+    const updatePayload=req.body
+    const parsedPayload=updateTodo.safeParse(updatePayload)
     if(!parsedPayload.success){
         res.status(411).json({
             msg:"You send the worng inputs"
@@ -43,7 +43,7 @@ app.post('/completed',async(req,res)=>{
         return;
     }
     //put it in mongodb
-    await todo.update({_id:req.body.id},{Completed: true})
+    await todo.updateOne({_id:req.body.id},{Completed: true})
     res.json({
         msg:"todo is marked as completed"
     })
