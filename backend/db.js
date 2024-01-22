@@ -1,6 +1,6 @@
 const mongoose=require("mongoose")
 
-mongoose.connect("mongodb+srv://prathamesh:rajendra1969@cluster0.f2oopnc.mongodb.net/todo?retryWrites=true&w=majority")
+mongoose.connect("Enter you mongoDB link")
 
 const todoSchema=mongoose.Schema({
     title :String,
